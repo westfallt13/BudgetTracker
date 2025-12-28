@@ -48,16 +48,203 @@ A modern, feature-rich expense tracking application built with React.js. Track y
 
 ## Getting Started
 
-### Prerequisites
-
-- Node.js (v14 or higher)
-- npm (v6 or higher)
-
-### Installation
-
-1. Clone or navigate to the project directory:
 ```bash
-cd "d:\Custom Builds\BudgetTracker"
+npm start
+```
+
+Opens at [http://localhost:3000](http://localhost:3000)
+
+### Desktop Application
+
+Run as a desktop application with Electron:
+
+```bash
+# Build and run
+npm run electron-dev
+
+# Or run without rebuilding (after npm run build)
+npm run electron
+```
+
+### Build for Production
+
+Create production-ready files:
+
+```bash
+npm run build
+```
+
+### Package for Windows
+
+Create a standalone Windows executable:
+
+```bash
+npm run package-win
+```
+
+The packaged application will be in `release/BudgetTracker-win32-x64/BudgetTracker.exe`
+
+## 📖 How to Use
+
+### 1. Create Your First Account
+
+1. Navigate to the **Accounts** tab
+2. Click "Add Account"
+3. Fill in:
+   - Account Name (e.g., "Chase Checking")
+   - Account Type (Checking, Savings, etc.)
+   - Initial Balance
+   - Description (optional)
+4. Click "Create Account"
+
+### 2. Add Transactions
+
+1. Go to the **Transactions** tab
+2. Click "Add Transaction"
+3. Select:
+   - Account
+   - Type (Income/Expense)
+   - Amount
+   - Description
+   - Category (optional)
+   - Date
+   - Notes (optional)
+4. Click "Add Transaction"
+
+### 3. Monitor Your Finances
+
+- View the **Dashboard** for overview statistics
+- Filter transactions by account, type, or category
+- Edit or delete accounts and transactions as needed
+- All data is automatically saved
+
+## 🔧 Development
+
+### Project Structure
+
+```
+BudgetTracker/
+├── Icons/                  # SVG icon files
+├── public/                 # Public assets
+│   └── index.html
+├── src/
+│   ├── components/         # React components
+│   │   ├── AccountList.js
+│   │   ├── Dashboard.js
+│   │   ├── Icon.js
+│   │   └── TransactionList.js
+│   ├── context/
+│   │   └── BudgetContext.js  # State management
+│   ├── App.js              # Main app component
+│   ├── index.js            # Entry point
+│   └── styles.css          # Global styles
+├── main.js                 # Electron main process
+├── webpack.config.js       # Build configuration
+└── package.json
+```
+
+### Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm start` | Start development server |
+| `npm run build` | Build for production |
+| `npm run electron` | Run Electron app |
+| `npm run electron-dev` | Build and run Electron |
+| `npm run package-win` | Package Windows app |
+
+### Adding New Features
+
+1. **New Icons**: Add SVG to `Icons/` folder and update `Icon.js`
+2. **New Components**: Create in `src/components/` and import in `App.js`
+3. **State Management**: Extend `BudgetContext.js` for global state
+4. **Styling**: Update `src/styles.css` with new styles
+
+## 🤝 Contributing
+
+Contributions are welcome! Here's how you can help:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+### Contribution Guidelines
+
+- Follow existing code style
+- Add comments for complex logic
+- Test thoroughly before submitting
+- Update documentation as needed
+
+## 🐛 Bug Reports
+
+Found a bug? Please open an issue with:
+- Description of the bug
+- Steps to reproduce
+- Expected behavior
+- Screenshots (if applicable)
+- Your environment (OS, Node version, etc.)
+
+## 💡 Feature Requests
+
+Have an idea? Open an issue with:
+- Clear description of the feature
+- Use case and benefits
+- Possible implementation approach
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Built with [React](https://reactjs.org/)
+- Desktop support via [Electron](https://www.electronjs.org/)
+- Icons are custom SVG designs
+- Inspired by the need for simple, private expense tracking
+
+## 📧 Contact
+
+For questions or suggestions:
+- Open an issue on GitHub
+- Submit a pull request
+
+## 🗺️ Roadmap
+
+Future enhancements planned:
+
+- [ ] Export data to CSV/Excel
+- [ ] Import transactions from bank statements
+- [ ] Recurring transactions
+- [ ] Budget limits and alerts
+- [ ] Charts and analytics
+- [ ] Multi-currency support
+- [ ] Cloud backup (optional)
+- [ ] Mobile app version
+- [ ] Dark mode theme
+
+## 🔒 Privacy
+
+Your data stays on your device:
+- No external servers
+- No data collection
+- No analytics or tracking
+- Complete privacy
+
+## ⚠️ Disclaimer
+
+This application is for personal finance tracking only. Always maintain separate backup records of your financial data. The developers are not responsible for any data loss or financial decisions made based on this application.
+
+---
+
+<div align="center">
+
+Made with ❤️ for financial freedom
+
+**[⬆ back to top](#budget-tracker---multi-account-expense-manager)**
+
+</div>
 ```
 
 2. Install dependencies:
@@ -71,117 +258,3 @@ npm start
 ```
 
 The application will open in your default browser at `http://localhost:3000`
-
-### Build for Production
-
-To create a production-ready build:
-
-```bash
-npm run build
-```
-
-The optimized files will be in the `dist` folder.
-
-## Project Structure
-
-```
-BudgetTracker/
-├── public/
-│   └── index.html              # HTML template
-├── src/
-│   ├── components/
-│   │   ├── Dashboard.js        # Dashboard overview component
-│   │   ├── AccountList.js      # Account management component
-│   │   └── TransactionList.js  # Transaction management component
-│   ├── context/
-│   │   └── BudgetContext.js    # Global state management
-│   ├── App.js                  # Main app component with navigation
-│   ├── index.js                # App entry point
-│   └── styles.css              # Global styles
-├── .babelrc                    # Babel configuration
-├── webpack.config.js           # Webpack configuration
-├── package.json                # Project dependencies
-└── README.md                   # This file
-```
-
-## Usage Guide
-
-### Creating an Account
-
-1. Navigate to the "Accounts" tab
-2. Click "Add Account"
-3. Fill in the account details:
-   - Name (e.g., "Chase Checking")
-   - Type (Checking, Savings, Credit Card, etc.)
-   - Initial Balance
-   - Description (optional)
-4. Click "Create Account"
-
-### Adding Transactions
-
-1. Navigate to the "Transactions" tab
-2. Click "Add Transaction"
-3. Select the account
-4. Choose transaction type (Income or Expense)
-5. Enter the amount
-6. Add a description
-7. Select a category (optional)
-8. Set the date
-9. Add notes (optional)
-10. Click "Add Transaction"
-
-### Viewing Dashboard
-
-The Dashboard provides:
-- Total balance across all accounts
-- Total income and expenses
-- Individual account balances
-- Recent transaction history
-
-### Filtering Transactions
-
-Use the filter dropdowns to:
-- View transactions from a specific account
-- Filter by income or expense
-- Filter by category
-
-## Future Enhancements (Ready for Electron)
-
-This application is designed to be wrapped in Electron for a desktop experience. When ready to convert to Electron:
-
-1. The app uses only browser-based APIs (no server dependencies)
-2. All data is stored in localStorage (will work in Electron)
-3. The UI is optimized for desktop viewing
-4. No external API calls or dependencies
-
-Potential Electron features to add:
-- Export data to CSV/PDF
-- Import transactions from bank statements
-- Local file system data backup
-- Native notifications for bill reminders
-- System tray integration
-
-## Browser Compatibility
-
-- Chrome/Edge (v90+)
-- Firefox (v88+)
-- Safari (v14+)
-
-## Data Privacy
-
-- All data is stored locally in your browser
-- No data is sent to any external servers
-- No analytics or tracking
-- Complete privacy and control over your financial data
-
-## License
-
-MIT License - Feel free to use and modify as needed.
-
-## Support
-
-For issues or questions, please check the code comments or create an issue in your repository.
-
----
-
-**Note:** This is a client-side application. All data is stored in browser localStorage. Clearing browser data will delete all your accounts and transactions. Consider implementing a backup/export feature before clearing browser data.
