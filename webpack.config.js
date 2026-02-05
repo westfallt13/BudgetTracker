@@ -43,7 +43,8 @@ module.exports = {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: 'Icons', to: 'Icons' }
+        { from: 'Icons', to: 'Icons' },
+        { from: 'public/_redirects', to: '_redirects', noErrorOnMissing: true }
       ]
     })
   ],
